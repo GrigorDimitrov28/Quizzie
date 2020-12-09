@@ -1,0 +1,145 @@
+/* rgb(235,0,255),rgb(17,166,223) */
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&display=swap");
+
+::ng-deep :root {
+  --mainBlue: #3f51b5;
+  --secondaryBlue: #6574c4;
+  --logoFont: "Galada", cursive;
+  --textFont: "Alegreya", serif;
+
+  --darkerBlue: #03256c;
+  --darkBlue: #254182;
+  --midBlue: #1768ac;
+  --lightBlue: #06bee1;
+  --white: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p,
+a {
+  font-family: var(--textFont);
+}
+
+footer {
+  padding: 2%;
+  display: flex;
+  background: rgb(37, 65, 130);
+  background: linear-gradient(
+    180deg,
+    rgba(37, 65, 130, 1) 0%,
+    rgb(15, 69, 185) 100%
+  );
+
+  margin-top: 5vh;
+  height: 35vh;
+}
+
+.useful-links h4,
+.social-media h4,
+.contact-us h4 {
+  font-size: 30px;
+  color: white;
+}
+
+.useful-links {
+  margin-left: 5vw;
+  width: 20vw;
+}
+
+.social-media {
+  width: 30vw;
+}
+
+.quizzie {
+  width: 35vw;
+  margin-right: 1vw;
+}
+
+.quizzie h3 {
+  color: white;
+  font-family: var(--logoFont);
+  font-size: 34px;
+}
+
+.quizzie-description {
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+  padding-left: 1vw;
+}
+
+.useful-links ul,
+.social-media ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.useful-links ul li a,
+.social-media ul li a {
+  padding-left: 1vw;
+  display: inline-block;
+  margin-top: 2vh;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+}
+
+.useful-links ul li a:hover,
+.social-media ul li a:hover {
+  color: var(--lightBlue);
+}
+
+.contact-us form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-us form input,
+.contact-us form textarea {
+  outline: none;
+}
+
+.contact-us h4 {
+  border-bottom: 1px solid white;
+  margin-bottom: 2vh;
+}
+
+.contact-us form input:not(.message) {
+  border-radius: 4px;
+  width: 25vw;
+  height: 4vh;
+}
+
+.send {
+  width: 10vw;
+  height: 5vh;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--lightBlue);
+  cursor: pointer;
+  color: white;
+  position: relative;
+  margin-left: auto;
+  transition: 0.5s;
+}
+
+.send:hover {
+  background-color: var(--darkerBlue);
+}
+
+.message {
+  border-radius: 4px;
+  height: 20vh;
+}

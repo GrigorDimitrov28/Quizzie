@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="login.component.css" />
+    <title>Login Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-body">
+          <div class="header">
+            <h2>Login</h2>
+            <p>
+              Don't have an account?
+              <a routerLink="/user/register" href="#">Create your Account</a>
+            </p>
+          </div>
+          <form
+            [formGroup]="form"
+            (ngSubmit)="submitHandler()"
+            class="form-group"
+          >
+            <fieldset>
+              <div class="input-group">
+                <input
+                  id="username"
+                  type="text"
+                  placeholder="Username"
+                  formControlName="username"
+                />
+              </div>
+              <p
+                *ngIf="
+                  form.get('username').touched &&
+                  form.get('username').errors?.required
+                "
+                class="error"
+              >
+                Username is required!
+              </p>
+              <p
+                *ngIf="
+                  form.get('username').touched &&
+                  form.get('username').errors?.minlength
+                "
+                class="error"
+              >
+                Username must be at least 5 characters!
+              </p>
+              <div class="input-group">
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  formControlName="password"
+                />
+              </div>
+              <p
+                *ngIf="
+                  form.get('password').touched &&
+                  form.get('password').errors?.required
+                "
+                class="error"
+              >
+                Password is required!
+              </p>
+              <p
+                *ngIf="
+                  form.get('password').touched &&
+                  form.get('password').errors?.minlength
+                "
+                class="error"
+              >
+                Password must be at least 4 characters!
+              </p>
+              <div class="input-group right">
+                <button>LOGIN</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <div class="form-image">
+          <div class="text">
+            <h2>
+              Welcome <br />
+              Back!
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

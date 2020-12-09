@@ -1,0 +1,123 @@
+<section class="quiz">
+  <div class="quiz-container">
+    <section class="header"><h3>Create your own quiz</h3></section>
+    <section class="details">
+      <div *ngIf="continue == false" class="inner-container">
+        <div class="detail">
+          <h4>Number of Questions:</h4>
+          {{ questions }}
+          <button
+            [class.clicked]="questions === 5"
+            [class.set-questions]="questions === 0"
+            (click)="questions = 5"
+          >
+            5
+          </button>
+          <button
+            [class.clicked]="questions === 10"
+            [class.set-questions]="questions === 0"
+            (click)="questions = 10"
+          >
+            10
+          </button>
+          <button
+            [class.clicked]="questions === 15"
+            [class.set-questions]="questions === 0"
+            (click)="questions = 15"
+          >
+            15
+          </button>
+        </div>
+        <div class="detail">
+          <h4>Quiz Time:</h4>
+          {{ time }}
+          <button
+            [class.clicked]="time === 5"
+            [class.set-time]="time === 0"
+            (click)="time = 5"
+          >
+            5
+          </button>
+          <button
+            [class.clicked]="time === 10"
+            [class.set-time]="time === 0"
+            (click)="time = 10"
+          >
+            10
+          </button>
+          <button
+            [class.clicked]="time === 15"
+            [class.set-time]="time === 0"
+            (click)="time = 15"
+          >
+            15
+          </button>
+        </div>
+        <div class="detail">
+          <h4>Quiz Difficulty:</h4>
+          {{ difficulty }}
+          <button
+            [class.clicked]="difficulty === 5"
+            [class.set-difficulty]="difficulty === 0"
+            (click)="difficulty = 5"
+          >
+            1
+          </button>
+          <button
+            [class.clicked]="difficulty === 10"
+            [class.set-difficulty]="difficulty === 0"
+            (click)="difficulty = 10"
+          >
+            2
+          </button>
+          <button
+            [class.clicked]="difficulty === 15"
+            [class.set-difficulty]="difficulty === 0"
+            (click)="difficulty = 15"
+          >
+            3
+          </button>
+        </div>
+        <div class="detail">
+          <h4>Quiz Type:</h4>
+          {{ type }}
+          <button
+            [class.clicked]="type === 'single answer'"
+            [class.set-type]="type === ''"
+            (click)="type = 'single answer'"
+          >
+            single answer
+          </button>
+          <button
+            [class.clicked]="type === 'multiple choice'"
+            [class.set-type]="type === ''"
+            (click)="type = 'multiple choice'"
+          >
+            multiple choice
+          </button>
+        </div>
+      </div>
+
+      <button (click)="continue = true" class="continue">Continue</button>
+    </section>
+
+    <section class="question-input-multiple-choice">
+      <div *ngIf="continue == true" class="inner-container">
+        <form [formGroup]="f" (ngSubmit)="addQuestion()">
+          <h2>Create question</h2>
+
+          <label for="qName"></label>
+          <input
+            type="text"
+            name="qName"
+            id="qName"
+            placeholder="Question name:"
+            formControlName="qName"
+          />
+
+          <button>Add question</button>
+        </form>
+      </div>
+    </section>
+  </div>
+</section>

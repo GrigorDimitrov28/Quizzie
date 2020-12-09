@@ -1,0 +1,65 @@
+/* rgb(235,0,255),rgb(17,166,223) */
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&display=swap");
+
+::ng-deep :root {
+  --mainBlue: #3f51b5;
+  --secondaryBlue: #6574c4;
+  --logoFont: "Galada", cursive;
+  --textFont: "Alegreya", serif;
+
+  --darkerBlue: #03256c;
+  --darkBlue: #254182;
+  --midBlue: #1768ac;
+  --lightBlue: #06bee1;
+  --white: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p,
+a {
+  font-family: var(--textFont);
+}
+
+.navigation {
+  background-color: var(--darkerBlue);
+  display: flex;
+}
+
+.logo {
+  outline: none;
+  font-family: var(--logoFont);
+  color: white;
+  margin: 1vh auto 1vh 2vw;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.link {
+  transition: 0.5s;
+  margin: auto 0 auto 0;
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  color: var(--lightBlue);
+}
+
+.link:not(:first-child) {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+.link:last-child {
+  margin-right: 2vw;
+}

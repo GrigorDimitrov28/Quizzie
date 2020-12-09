@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&display=swap");
+
+::ng-deep :root {
+  --mainBlue: #3f51b5;
+  --secondaryBlue: #6574c4;
+  --logoFont: "Galada", cursive;
+  --textFont: "Alegreya", serif;
+
+  --darkerBlue: #03256c;
+  --darkBlue: #254182;
+  --midBlue: #1768ac;
+  --lightBlue: #06bee1;
+  --white: #ffffff;
+}
+
+::ng-deep body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p,
+a {
+  font-family: var(--textFont);
+}
+
+a:hover {
+  color: var(--lightBlue);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #365bd66c;
+  font-family: arial;
+}
+
+.container .form-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50vw;
+  height: 60vh;
+  background: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s;
+}
+/* .container .form-container:hover {
+  transform: translateY(-10px) rotate(-1deg);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+} */
+
+.container .form-image {
+  position: absolute;
+  right: -1px;
+  color: #fff;
+  height: 110%;
+  width: 60%;
+  background: linear-gradient(var(--midBlue), var(--darkerBlue));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 100%);
+}
+
+.container .form-image .text p {
+  font-size: 12px;
+}
+.container .form-image .text h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+.container .form-image .text {
+  position: absolute;
+  right: 0;
+  padding: 30px;
+  margin-top: 30px;
+  text-align: right;
+  width: 60%;
+}
+
+.form-group {
+  margin: 30px 60px;
+}
+.form-group .input-group {
+  width: 300px;
+  margin: 15px 0px;
+}
+
+.form-body .header {
+  margin: 0px 60px;
+}
+
+.form-body .header h2 {
+  margin-bottom: 15px;
+}
+.form-body .header p {
+  font-size: 12px;
+}
+.form-body .header a {
+  text-decoration: none;
+  color: var(--lightBlue);
+}
+
+.form-group .input-group input[type="password"],
+.form-group .input-group input[type="text"] {
+  width: 100%;
+  padding: 8px 15px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group .input-group.right {
+  text-align: right;
+}
+.form-group .input-group button {
+  position: relative;
+  background: var(--midBlue);
+  width: 100px;
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.form-group .input-group button::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  border-radius: 5px;
+  background: linear-gradient(to left, var(--midBlue), var(--darkerBlue));
+  left: -100px;
+  top: 0;
+}
+
+.form-group .input-group button {
+  transition: 0.5s;
+}
+
+.form-group .input-group button:hover {
+  background-color: var(--darkerBlue);
+}
+
+.form-group .input-group.flex .remember input {
+  margin-right: 5px;
+}
+.form-group .input-group.flex .remember {
+  display: flex;
+  align-items: center;
+}
+.form-group .input-group.flex {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.form-group .input-group.flex a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+fieldset {
+  border: none;
+}
+
+.error {
+  font-size: 14px;
+  margin: 0;
+  color: red;
+}

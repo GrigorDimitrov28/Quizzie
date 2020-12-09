@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&display=swap");
+
+::ng-deep :root {
+  --mainBlue: #3f51b5;
+  --secondaryBlue: #6574c4;
+  --logoFont: "Galada", cursive;
+  --textFont: "Alegreya", serif;
+
+  --darkerBlue: #03256c;
+  --darkBlue: #254182;
+  --midBlue: #1768ac;
+  --lightBlue: #06bee1;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  background-image: url("https://images.unsplash.com/photo-1570937943292-a574bd5bc722?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgb(3, 37, 108, 0.7);
+  background-blend-mode: multiply;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p,
+h3,
+a {
+  font-family: var(--textFont);
+}
+
+a:hover {
+  color: var(--lightBlue);
+}
+
+p {
+  font-style: italic;
+}
+
+.navigation {
+  background-color: var(--darkerBlue);
+  display: flex;
+}
+
+.logo {
+  font-family: var(--logoFont);
+  color: white;
+  margin: 1vh auto 1vh 2vw;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.link {
+  margin: auto 0 auto 0;
+  text-decoration: none;
+  color: white;
+}
+
+.link:not(:first-child) {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+.link:last-child {
+  margin-right: 2vw;
+}
+
+.sub-nav {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  top: 10vh;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.who,
+.ambitions,
+.points,
+.custom {
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+  border: 2px solid white;
+  border-radius: 24px;
+  padding: 0.5vw;
+  transition: 0.5s;
+}
+
+.who-content {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  top: 15vh;
+  left: 5vw;
+  position: absolute;
+  color: white;
+  background-color: var(--darkerBlue);
+  width: 30vw;
+  height: 20vh;
+  font-size: 24px;
+  line-height: 2vw;
+  padding: 1vw;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.ambitions-content {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  top: 50vh;
+  left: 5vw;
+  position: absolute;
+  color: white;
+  background-color: var(--darkerBlue);
+  width: 30vw;
+  height: 20vh;
+  font-size: 24px;
+  line-height: 2vw;
+  padding: 1vw;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.points-content {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  top: 50vh;
+  right: 5vw;
+  position: absolute;
+  color: white;
+  background-color: var(--darkerBlue);
+  width: 30vw;
+  height: 20vh;
+  font-size: 24px;
+  line-height: 2vw;
+  padding: 1vw;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.custom-content {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  top: 15vh;
+  right: 5vw;
+  position: absolute;
+  color: white;
+  background-color: var(--darkerBlue);
+  width: 30vw;
+  height: 20vh;
+  font-size: 24px;
+  line-height: 2vw;
+  padding: 1vw;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.who:hover,
+.ambitions:hover,
+.points:hover,
+.custom:hover {
+  background: white;
+  color: var(--darkerBlue);
+}
+
+.who:hover + .who-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ambitions:hover + .ambitions-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.points:hover + .points-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom:hover + .custom-content {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,197 @@
+<body>
+  <main>
+    <section class="description">
+      <img
+        class="scrabble"
+        src="https://images.pexels.com/photos/5649889/pexels-photo-5649889.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt=""
+      />
+
+      <div class="description-container">
+        <h3>Welcome to Quizzie!</h3>
+        <p>
+          We make exercising your brain funny, effective and competitive. Join
+          our family and let's get smarter together!
+        </p>
+
+        <div class="btn-container">
+          <a *ngIf="!(isLogged$ | async)">Play as a guest</a>
+          <a *ngIf="!(isLogged$ | async)" routerLink="/user/register">
+            Create an account
+          </a>
+          <a href="#" routerLink="/quiz/create" *ngIf="isLogged$ | async"
+            >Create quiz</a
+          >
+          <a href="#" routerLink="/" *ngIf="isLogged$ | async">Play quiz</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section">
+      <section class="quizzes">
+        <h3>Featured custom quizzes</h3>
+        <div class="first-row">
+          <article class="quiz-card">
+            <img
+              src="http://ontheworldmap.com/world-map.jpg"
+              alt=""
+              class="quiz-image"
+            />
+            <!-- <div class="category-one">
+              <h4>Category: Geography</h4>
+              <h4>Created by: Gosho</h4>
+            </div> -->
+            <div *ngIf="isLogged$ | async" class="quiz-buttons">
+              <button class="play">Play</button>
+              <button class="details">Details</button>
+            </div>
+            <div *ngIf="!(isLogged$ | async)" class="details-button">
+              <button class="guest-details">Details</button>
+            </div>
+          </article>
+          <article class="quiz-card">
+            <img
+              src="http://ontheworldmap.com/world-map.jpg"
+              alt=""
+              class="quiz-image"
+            />
+            <!-- <div class="category-two">
+              <h4>Category: Geography</h4>
+              <h4>Created by: Gosho</h4>
+            </div> -->
+            <div *ngIf="isLogged$ | async" class="quiz-buttons">
+              <button class="play">Play</button>
+              <button class="details">Details</button>
+            </div>
+            <div *ngIf="!(isLogged$ | async)" class="details-button">
+              <button class="guest-details">Details</button>
+            </div>
+          </article>
+        </div>
+        <div class="second-row">
+          <article class="quiz-card">
+            <img
+              src="http://ontheworldmap.com/world-map.jpg"
+              alt=""
+              class="quiz-image"
+            />
+            <!-- <div class="category-three">
+              <h4>Category: Geography</h4>
+              <h4>Created by: Gosho</h4>
+            </div> -->
+            <div *ngIf="isLogged$ | async" class="quiz-buttons">
+              <button class="play">Play</button>
+              <button class="details">Details</button>
+            </div>
+            <div *ngIf="!(isLogged$ | async)" class="details-button">
+              <button class="guest-details">Details</button>
+            </div>
+          </article>
+          <article class="quiz-card">
+            <img
+              src="http://ontheworldmap.com/world-map.jpg"
+              alt=""
+              class="quiz-image"
+            />
+            <!-- <div class="category-four">
+              <h4>Category: Geography</h4>
+              <h4>Created by: Gosho</h4>
+            </div> -->
+            <div *ngIf="isLogged$ | async" class="quiz-buttons">
+              <button class="play">Play</button>
+              <button class="details">Details</button>
+            </div>
+            <div *ngIf="!(isLogged$ | async)" class="details-button">
+              <button class="guest-details">Details</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="leaderboard">
+        <h3>Leaderboard</h3>
+        <table>
+          <tr>
+            <th>User</th>
+            <th>Quizzie Points</th>
+          </tr>
+          <tr>
+            <td>
+              <img src="" alt="" class="profile-picture" />
+              <h4 class="user-name"></h4>
+            </td>
+            <td>
+              <h4 class="points"></h4>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="" alt="" class="profile-picture" />
+              <h4 class="user-name"></h4>
+            </td>
+            <td><h4 class="points"></h4></td>
+          </tr>
+          <tr>
+            <td>
+              <img src="" alt="" class="profile-picture" />
+              <h4 class="user-name"></h4>
+            </td>
+            <td><h4 class="points"></h4></td>
+          </tr>
+          <tr>
+            <td>
+              <img src="" alt="" class="profile-picture" />
+              <h4 class="user-name"></h4>
+            </td>
+            <td><h4 class="points"></h4></td>
+          </tr>
+          <tr>
+            <td>
+              <img src="" alt="" class="profile-picture" />
+              <h4 class="user-name"></h4>
+            </td>
+            <td><h4 class="points"></h4></td>
+          </tr>
+        </table>
+      </section>
+    </section>
+
+    <section class="website-statistics">
+      <h3>Our achievements</h3>
+      <div class="flex-container">
+        <article class="website-users">
+          <img
+            src="https://www.flaticon.com/svg/static/icons/svg/681/681494.svg"
+            alt=""
+            class="svg"
+          />
+
+          <h4>0 Users</h4>
+        </article>
+        <article class="website-quizzes">
+          <img
+            src="https://www.flaticon.com/svg/static/icons/svg/25/25400.svg"
+            alt=""
+            class="svg"
+          />
+
+          <h4>0 Quizzes</h4>
+        </article>
+        <article class="website-blogposts">
+          <img
+            src="https://www.flaticon.com/svg/static/icons/svg/1187/1187595.svg"
+            alt=""
+            class="svg"
+          />
+
+          <h4>0 Blog posts</h4>
+        </article>
+      </div>
+    </section>
+
+    <section class="featured-blogposts">
+      <article class="blogpost">p</article>
+      <article class="blogpost">p</article>
+    </section>
+  </main>
+</body>
