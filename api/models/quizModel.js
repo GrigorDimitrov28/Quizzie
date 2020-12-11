@@ -7,7 +7,7 @@ const quizSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    questions:{
+    qArray:{
         type: Array,
         required: true,
         minLength: 5,
@@ -23,9 +23,19 @@ const quizSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "User"
     },
+    qNum: {
+        type: Number,
+        min: 0,
+        max: 15,
+        required: true
+    },
     likes: {
         type: Number,
         default: 0
+    },
+    type: {
+        type: String,
+        required: true
     }
     
 }, { timestamps: { createdAt: 'created_at' } });

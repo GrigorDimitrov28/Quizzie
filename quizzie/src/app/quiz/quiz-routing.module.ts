@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { QuizCreateComponent } from './quiz-create/quiz-create.component';
 import { QuizDetailsComponent } from './quiz-details/quiz-details.component';
+import { RandomQuizComponent } from './random-quiz/random-quiz.component';
 
 const routes: Routes = [
     {
@@ -10,6 +11,10 @@ const routes: Routes = [
     {
         path: 'create',
         component: QuizCreateComponent
+    },
+    {
+        path: 'random',
+        component: RandomQuizComponent
     }
 ];
 

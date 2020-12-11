@@ -31,7 +31,7 @@ function auth(redirectUnauthenticated = true) {
                 }
                 if (['token expired', 'blacklisted token', 'jwt must be provided'].includes(err.message)) {
                     console.error(err);
-                    res.send(401).send({ message: "Invalid token!" });
+                    res.status(401).send({ message: "Invalid token!" });
                     return;
                 }
                 next(err);

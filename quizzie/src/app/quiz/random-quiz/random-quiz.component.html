@@ -1,0 +1,44 @@
+<section class="quiz">
+  <div class="quiz-container">
+    <section class="question">
+      {{ quiz[qNumber] ? quiz[qNumber].question : "" }}
+    </section>
+
+    <section class="answers">
+      <button
+        *ngIf="qNumber < quiz.length && quiz.length > 0"
+        (click)="pushAnswer(0)"
+      >
+        {{ quiz[qNumber] ? quiz[qNumber].answers[0] : "" }}
+      </button>
+      <button
+        *ngIf="qNumber < quiz.length && quiz.length > 0"
+        (click)="pushAnswer(1)"
+      >
+        {{ quiz[qNumber] ? quiz[qNumber].answers[1] : "" }}
+      </button>
+      <button
+        *ngIf="qNumber < quiz.length && quiz.length > 0"
+        (click)="pushAnswer(2)"
+      >
+        {{ quiz[qNumber] ? quiz[qNumber].answers[2] : "" }}
+      </button>
+      <button
+        *ngIf="qNumber < quiz.length && quiz.length > 0"
+        (click)="pushAnswer(3)"
+      >
+        {{ quiz[qNumber] ? quiz[qNumber].answers[3] : "" }}
+      </button>
+      <button
+        *ngIf="qNumber < quiz.length && quiz.length > 0"
+        (click)="nextQuestion()"
+      >
+        Next Question
+      </button>
+      <button *ngIf="qNumber == quiz.length && quiz.length > 0">
+        Submit answers
+      </button>
+      <button (click)="goBack()">Go back</button>
+    </section>
+  </div>
+</section>

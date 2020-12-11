@@ -17,23 +17,10 @@
   background: lightblue;
 }
 
-.header {
-  background-color: lightsteelblue;
-  height: 20vh;
-  width: 100%;
+.question {
+  height: 25vh;
+  width: 60vw;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.header h3 {
-  color: white;
-  font-size: 32px;
-}
-
-.clicked {
-  background-color: blue;
-  color: white;
 }

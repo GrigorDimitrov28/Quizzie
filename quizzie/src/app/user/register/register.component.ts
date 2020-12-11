@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
 
   submitHandler(): void {
     const data = this.form.value;
+    console.log(data);
     this.isLoading = true;
 
     this.authService.register(data).subscribe({

@@ -27,7 +27,33 @@ const userSchema = new mongoose.Schema({
             },
             message: props => `${props.value} must contains only latin letters and digits!`
         },
+    },
+    imgUrl: {
+        type: String,
+        default: ''
+    },
+    qPlayed: {
+        type: Number,
+        default: 0
+    },
+    answers: {
+        type: Object,
+        default: {a: 0, w: 0}
+    },
+    qCreated: {
+        type: Number,
+        default: 0,
+        min: 0
+    },
+    points: {
+        type:Number,
+        default: 0,
+        min: 0
     }
+    // pCreated: {
+    //     type: ObjectId,
+    //     ref: ''
+    // }
 }, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.methods = {

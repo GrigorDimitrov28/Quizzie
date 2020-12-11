@@ -22,20 +22,14 @@ export class AuthService {
   }
 
   login(data: any): Observable<any> {
-    console.log(data);
     return this.http
       .post(`/users/login`, data)
       .pipe(tap((user: IUser) => this._currentUser.next(user)));
   }
 
   register(data: any): Observable<any> {
-    const reqOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
     return this.http
-      .post(`/users/register`, data, reqOptions)
+      .post(`/users/register`, data)
       .pipe(tap((user: IUser) => this._currentUser.next(user)));
   }
 
@@ -47,11 +41,29 @@ export class AuthService {
 
   authenticate(): Observable<any> {
     return this.http.get(`/users/profile`).pipe(
-      tap((user: IUser) => this._currentUser.next(user)),
+      tap((user: IUser) => {
+        localStorage.setItem('uId', user._id);
+        this._currentUser.next(user);
+      }),
       catchError(() => {
         this._currentUser.next(null);
         return [null];
       })
     );
+  }
+
+  // getId(): Observable<any> {
+  //   return this.http.get(`/users/profile`).pipe(
+  //     tap((user: IUser) => {
+  //       return user._id;
+  //     }),
+  //     catchError((err) => {
+  //       return err;
+  //     })
+  //   );
+  // }
+
+  getInfo(id: any): Observable<any> {
+    return this.http.get(`/users/info/${id}`);
   }
 }

@@ -15,14 +15,18 @@
         </p>
 
         <div class="btn-container">
-          <a *ngIf="!(isLogged$ | async)">Play as a guest</a>
+          <a *ngIf="!(isLogged$ | async)" routerLink="/quiz/random"
+            >Play as a guest</a
+          >
           <a *ngIf="!(isLogged$ | async)" routerLink="/user/register">
             Create an account
           </a>
           <a href="#" routerLink="/quiz/create" *ngIf="isLogged$ | async"
             >Create quiz</a
           >
-          <a href="#" routerLink="/" *ngIf="isLogged$ | async">Play quiz</a>
+          <a href="#" routerLink="/quiz/random" *ngIf="isLogged$ | async"
+            >Random quiz</a
+          >
         </div>
       </div>
     </section>

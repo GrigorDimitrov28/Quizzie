@@ -30,6 +30,7 @@ function register(req, res, next) {
                 .send(createdUser);
         })
         .catch(err => {
+            console.log(err);
             if (err.name === 'MongoError' && err.code === 11000) {
                 let field = err.message.split("index: ")[1];
                 field = field.split(" dup key")[0];
@@ -101,10 +102,17 @@ function editProfileInfo(req, res, next) {
         .catch(next);
 }
 
+function getInfo(req, res, next) {
+    const { id } = req.params;
+    userModel.findOne({_id: id}).then(d => res.status(200).send(d)).catch(err => res.status(400).send(err));
+
+}
+
 module.exports = {
     login,
     register,
     logout,
     getProfileInfo,
     editProfileInfo,
+    getInfo
 }

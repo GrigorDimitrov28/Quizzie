@@ -12,16 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
-
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent, AboutComponent],
   imports: [CoreModule, BrowserModule, HttpClientModule, AppRoutingModule],
-  providers: [
-    // {
-    //   provide: LOCALE_ID,
-    //   useValue: 'en'
-    // }
-  ],
+  providers: [],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],
 })
 export class AppModule { }

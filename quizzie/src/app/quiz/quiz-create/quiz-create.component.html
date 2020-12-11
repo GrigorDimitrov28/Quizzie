@@ -7,23 +7,23 @@
           <h4>Number of Questions:</h4>
           {{ questions }}
           <button
-            [class.clicked]="questions === 5"
-            [class.set-questions]="questions === 0"
-            (click)="questions = 5"
+            [class.clicked]="qNum === 5"
+            [class.set-qNum]="qNum === 0"
+            (click)="qNum = 5"
           >
             5
           </button>
           <button
-            [class.clicked]="questions === 10"
-            [class.set-questions]="questions === 0"
-            (click)="questions = 10"
+            [class.clicked]="qNum === 10"
+            [class.set-qNum]="qNum === 0"
+            (click)="qNum = 10"
           >
             10
           </button>
           <button
-            [class.clicked]="questions === 15"
-            [class.set-questions]="questions === 0"
-            (click)="questions = 15"
+            [class.clicked]="qNum === 15"
+            [class.set-qNum]="qNum === 0"
+            (click)="qNum = 15"
           >
             15
           </button>
@@ -57,23 +57,23 @@
           <h4>Quiz Difficulty:</h4>
           {{ difficulty }}
           <button
-            [class.clicked]="difficulty === 5"
+            [class.clicked]="difficulty === 1"
             [class.set-difficulty]="difficulty === 0"
-            (click)="difficulty = 5"
+            (click)="difficulty = 1"
           >
             1
           </button>
           <button
-            [class.clicked]="difficulty === 10"
+            [class.clicked]="difficulty === 2"
             [class.set-difficulty]="difficulty === 0"
-            (click)="difficulty = 10"
+            (click)="difficulty = 2"
           >
             2
           </button>
           <button
-            [class.clicked]="difficulty === 15"
+            [class.clicked]="difficulty === 3"
             [class.set-difficulty]="difficulty === 0"
-            (click)="difficulty = 15"
+            (click)="difficulty = 3"
           >
             3
           </button>
@@ -98,15 +98,20 @@
         </div>
       </div>
 
-      <button (click)="continue = true" class="continue">Continue</button>
+      <button
+        (click)="continue = true"
+        *ngIf="continue == false"
+        class="continue"
+      >
+        Continue
+      </button>
     </section>
 
     <section class="question-input-multiple-choice">
-      <div *ngIf="continue == true" class="inner-container">
+      <div *ngIf="continue == true && canPost == false" class="inner-container">
         <form [formGroup]="f" (ngSubmit)="addQuestion()">
           <h2>Create question</h2>
 
-          <label for="qName"></label>
           <input
             type="text"
             name="qName"
@@ -115,9 +120,38 @@
             formControlName="qName"
           />
 
+          <input
+            type="text"
+            formControlName="qRAnswer"
+            placeholder="Right answer: "
+          />
+
+          <input
+            type="text"
+            formControlName="qWAnswer1"
+            placeholder="Wrong answer: "
+          />
+
+          <input
+            type="text"
+            formControlName="qWAnswer2"
+            placeholder="Wrong answer: "
+          />
+
+          <input
+            type="text"
+            formControlName="qWAnswer3"
+            placeholder="Wrong answer: "
+          />
           <button>Add question</button>
         </form>
+        <button *ngIf="continue == true" (click)="continue = false">
+          Go back
+        </button>
       </div>
+      <button (click)="createQuiz()" *ngIf="canPost == true">
+        Create quiz
+      </button>
     </section>
   </div>
 </section>
