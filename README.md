@@ -16,4 +16,6 @@ Quizzie has the following main routes:
 
 - ```/forum```
 
-**Unlogged** users can only play random quizzes and read posts in the forum. Once registered, a user gains access to all of Quizzie's functionality.
+**Unlogged** users can only play random quizzes and read posts in the forum. Once **registered**, a user gains access to all of Quizzie's functionality.
+
+Users can also send messages to Quizzie's team via the contact form in the footer.
