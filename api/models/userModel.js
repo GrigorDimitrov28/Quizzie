@@ -49,11 +49,11 @@ const userSchema = new mongoose.Schema({
         type:Number,
         default: 0,
         min: 0
+    },
+    pCreated: {
+        type: Number,
+        default: 0
     }
-    // pCreated: {
-    //     type: ObjectId,
-    //     ref: ''
-    // }
 }, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.methods = {

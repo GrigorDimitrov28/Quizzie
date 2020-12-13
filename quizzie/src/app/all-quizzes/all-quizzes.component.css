@@ -1,0 +1,167 @@
+::ng-deep body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.description {
+  display: flex;
+  background-color: var(--darkBlue);
+  color: white;
+  height: 55vh;
+  width: 100vw;
+}
+
+.scrabble {
+  clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+  min-height: 40vh;
+  max-height: 65vh;
+  min-width: 75%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.description-container {
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 65vh;
+}
+
+.description-container h3 {
+  font-size: 45px;
+  width: 30vw;
+  position: relative;
+  right: 10vw;
+}
+
+.description-container p {
+  font-style: italic;
+  line-height: 2.5vw;
+  font-size: 18px;
+  width: 30vw;
+  position: relative;
+  right: 9vw;
+}
+
+.btn-container {
+  position: relative;
+  right: 5vw;
+  justify-content: space-evenly;
+  padding: 2vw;
+  display: flex;
+}
+
+.btn-container a {
+  border-radius: 60px;
+  color: #ffffff;
+  font-family: var(--textFont);
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5%;
+  background-color: #1768ac;
+  box-shadow: 1px 1px 5px 0 #000000;
+  text-shadow: 1px 1px 5px #000000;
+  border: solid #03256c 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.btn-container a:hover {
+  background-color: var(--darkerBlue);
+  color: white;
+}
+
+.quizzes {
+  min-height: 80vh;
+  height: auto;
+}
+
+.quiz-section {
+  flex-wrap: wrap;
+  width: 100%;
+  background: white;
+  height: auto;
+  padding-left: 2vw;
+  display: flex;
+  width: auto;
+}
+
+.quizzes {
+  width: 100%;
+}
+
+.quiz-card {
+  display: flex;
+  margin-right: 5%;
+  flex-direction: column;
+  padding-top: 3vh;
+}
+
+.quiz-image {
+  width: 25vw;
+  height: 25vh;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.category h4 {
+  font-size: 20px;
+}
+
+.quiz-image:hover + .category-one,
+.quiz-image:hover + .category-two,
+.quiz-image:hover + .category-three,
+.quiz-image:hover + .category-four {
+  opacity: 1;
+}
+
+.quiz-buttons {
+  display: flex;
+  width: 25vw;
+}
+
+.quiz-buttons button {
+  cursor: pointer;
+  background-color: var(--darkBlue);
+  border: none;
+  color: white;
+  height: 5vh;
+  transition: 0.5s;
+  opacity: 1;
+  width: 12.5vw;
+  outline: none;
+}
+
+.guest-details {
+  cursor: pointer;
+  background-color: var(--darkBlue);
+  border: none;
+  color: white;
+  height: 5vh;
+  transition: 0.5s;
+  opacity: 1;
+  outline: none;
+  width: 25vw;
+}
+
+.quiz-buttons button:hover,
+.guest-details:hover {
+  opacity: 0.5;
+}
+
+.quiz-buttons button:first-child {
+  border-right: 2px solid var(--secondaryBlue);
+}
+
+.title {
+  color: var(--darkerBlue);
+  font-size: 26px;
+  margin-left: 3%;
+}

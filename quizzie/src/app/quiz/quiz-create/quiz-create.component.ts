@@ -16,9 +16,9 @@ export class QuizCreateComponent implements OnInit {
   qArray=[];
   creator = localStorage.getItem('uId');
   canPost = false;
-
+  imgUrl = '';
   continue = false;
-
+  chosenImage = false;
   f: FormGroup;
 
   constructor(
@@ -31,7 +31,8 @@ export class QuizCreateComponent implements OnInit {
       qRAnswer: [''],
       qWAnswer1: [''],
       qWAnswer2: [''],
-      qWAnswer3: ['']
+      qWAnswer3: [''],
+      qImgUrl: ['']
     })
    }
 
@@ -46,6 +47,11 @@ export class QuizCreateComponent implements OnInit {
     }
   }
 
+  setImage(): void {
+    const data = this.f.value;
+    this.imgUrl = data.qImgUrl;
+  }
+
   createQuiz(): void {
     const data = {
       qNum: this.qNum,
@@ -53,7 +59,8 @@ export class QuizCreateComponent implements OnInit {
       difficulty: this.difficulty,
       type: this.type,
       qArray: this.qArray,
-      creator: this.creator
+      creator: this.creator,
+      imgUrl: this.imgUrl
     }
 
     this.quizService.create(data).subscribe({

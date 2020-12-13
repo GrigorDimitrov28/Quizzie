@@ -2,14 +2,28 @@
   <nav class="navigation">
     <h2 routerLink="/home" class="logo">Quizzie</h2>
     <a routerLink="/about" class="link">About us</a>
-    <a *ngIf="isLogged$ | async" class="link">Creator's hub</a>
-    <a *ngIf="!(isLogged$ | async)" routerLink="/user/login" class="link">Sign in</a>
-    <a class="link"
-    *ngIf="isLogged$ | async"
-    routerLink="/user/profile" 
-    href="#">My account</a>
-    <a *ngIf="isLogged$ | async" 
-    class="link"
-    (click)="logoutHandler()" href="#">Logout</a>
+    <a href="#" *ngIf="isLogged$ | async" routerLink="allQuizzes" class="link"
+      >Quizzes</a
+    >
+    <a
+      *ngIf="isLogged$ | async"
+      href="#"
+      class="link"
+      routerLink="/forum/landing"
+      >Creator's hub</a
+    >
+    <a *ngIf="!(isLogged$ | async)" routerLink="/user/login" class="link"
+      >Sign in</a
+    >
+    <a
+      class="link"
+      *ngIf="isLogged$ | async"
+      routerLink="/user/profile"
+      href="#"
+      >My account</a
+    >
+    <a *ngIf="isLogged$ | async" class="link" (click)="logoutHandler()" href="#"
+      >Logout</a
+    >
   </nav>
 </header>

@@ -1,0 +1,177 @@
+::ng-deep body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  margin-top: -5vh;
+  height: auto;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.post-container {
+  background-color: lightsteelblue;
+  padding-left: 2vw;
+  padding-top: 5vh;
+  height: auto;
+}
+
+.form-container {
+  background-color: lightsteelblue;
+  padding-left: 2vw;
+  padding-top: 5vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-input {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 25vw;
+  height: 5vh;
+}
+
+.textarea-input {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 50vw;
+  height: 30vh;
+}
+
+.b-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.save {
+  margin-right: 2%;
+  margin-bottom: 2%;
+
+  outline: none;
+  width: 7.5vw;
+  height: 7vh;
+  border-radius: 60px;
+  background-color: var(--lightBlue);
+  box-shadow: 1px 1px 5px 0 #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.cancel {
+  margin-right: 2%;
+  margin-bottom: 2%;
+
+  outline: none;
+  width: 7.5vw;
+  height: 7vh;
+  border-radius: 60px;
+  background-color: var(--lightBlue);
+  box-shadow: 1px 1px 5px 0 #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.title {
+  color: var(--darkerBlue);
+  font-size: 28px;
+}
+
+.content {
+  width: 75vw;
+  font-size: 20px;
+  word-wrap: break-word;
+  line-height: 150%;
+}
+
+.edit {
+  outline: none;
+  width: 7.5vw;
+  height: 7vh;
+  margin-left: 75vw;
+  margin-bottom: 2%;
+  border-radius: 60px;
+  background-color: var(--lightBlue);
+  box-shadow: 1px 1px 5px 0 #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s;
+}
+.delete {
+  outline: none;
+  width: 7.5vw;
+  height: 7vh;
+  border-radius: 60px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  background-color: var(--lightBlue);
+  box-shadow: 1px 1px 5px 0 #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.edit:hover,
+.delete:hover {
+  opacity: 0.7;
+}
+
+.comment-area {
+  border-radius: 12px;
+  height: 15vh;
+  width: 40vw;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.comm {
+  outline: none;
+  width: 7.5vw;
+  height: 7vh;
+  border-radius: 60px;
+  margin-left: 2%;
+  background-color: var(--lightBlue);
+  box-shadow: 1px 1px 5px 0 #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.comment {
+  margin: 2%;
+  border-radius: 15px 50px;
+  padding: 1%;
+  height: auto;
+  width: 60vw;
+  border: none;
+  background: linear-gradient(
+    139deg,
+    rgba(23, 104, 172, 0.7) 0%,
+    rgba(37, 65, 130, 0.7) 100%
+  );
+  color: white;
+}

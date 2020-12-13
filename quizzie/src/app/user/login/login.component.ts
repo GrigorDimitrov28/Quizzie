@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
     this.errorMessage = '';
 
     this.authService.login(data).subscribe({
-      next: () => {
+      next: (d) => {
+        localStorage.setItem('uId', d._id);
         this.isLoading = false;
         this.router.navigate(['/']);
       },

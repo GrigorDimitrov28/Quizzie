@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
         this.qCreated = d.qCreated || 0;
         this.username = d.username || '';
         d.imgUrl ? this.imgUrl = d.imgUrl : this.imgUrl = 'https://i.stack.imgur.com/l60Hf.png';
-        this.bCreated = d.bCreated || 0;
+        this.bCreated = d.pCreated || 0;
         this.points = d.points || 0;
       }
     })

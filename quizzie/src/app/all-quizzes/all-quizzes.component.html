@@ -1,0 +1,47 @@
+<section class="description">
+  <img
+    class="scrabble"
+    src="https://images.pexels.com/photos/5649889/pexels-photo-5649889.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    alt=""
+  />
+
+  <div class="description-container">
+    <h3>Welcome to Quizzie!</h3>
+    <p>
+      We make exercising your brain funny, effective and competitive. Join our
+      family and let's get smarter together!
+    </p>
+
+    <div class="btn-container">
+      <a *ngIf="!(isLogged$ | async)" routerLink="/quiz/random">Play random</a>
+      <a *ngIf="!(isLogged$ | async)" routerLink="/user/register"> Register </a>
+      <a href="#" routerLink="/quiz/create" *ngIf="isLogged$ | async"
+        >Create quiz</a
+      >
+      <a href="#" routerLink="/quiz/random" *ngIf="isLogged$ | async"
+        >Random quiz</a
+      >
+    </div>
+  </div>
+</section>
+
+<section class="quizzes">
+  <h3 class="title">All quizzes</h3>
+
+  <section class="quiz-section">
+    <article *ngFor="let quiz of quizzes" class="quiz-card">
+      <img src="{{ quiz.imgUrl }}" alt="" class="quiz-image" />
+      <div *ngIf="isLogged$ | async" class="quiz-buttons">
+        <button class="play" routerLink="/quiz/play/{{ quiz._id }}">
+          Play
+        </button>
+        <button class="details" routerLink="/quiz/details/{{ quiz._id }}">
+          Details
+        </button>
+      </div>
+      <div *ngIf="!(isLogged$ | async)" class="details-button">
+        <button class="guest-details">Details</button>
+      </div>
+    </article>
+  </section>
+</section>

@@ -9,7 +9,8 @@ router.post('/login', authController.login);
 router.post('/logout', authController.logout);
 
 router.get('/profile', auth(),authController.getProfileInfo);
-router.get('/info/:id', auth(), authController.getInfo)
+router.get('/info/:id', auth(), authController.getInfo);
+router.get('/home/info', authController.getHomeInfo);
 router.put('/profile', auth(),authController.editProfileInfo);
 
 

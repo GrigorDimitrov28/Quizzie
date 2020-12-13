@@ -1,0 +1,65 @@
+<ng-template #defaultMode>
+  <div class="post-container">
+    <h3 class="title">{{ post.title }}</h3>
+    <p class="content">{{ post.content }}</p>
+    <button class="edit" (click)="toggleEditMode()">Edit</button>
+    <button class="delete" (click)="del()">Delete</button>
+  </div>
+  <form #c="ngForm" (ngSubmit)="comment(c.value)">
+    <textarea
+      class="comment-area"
+      id=""
+      cols="30"
+      rows="10"
+      [(ngModel)]="content"
+      name="content"
+      id="content"
+    ></textarea>
+
+    <button class="comm">Comment</button>
+  </form>
+
+  <div class="comment" *ngFor="let comment of post.comments">
+    <h3>Posted by: {{ comment.creator }}</h3>
+    <p>{{ comment.content }}</p>
+  </div>
+</ng-template>
+
+<ng-template #editMode>
+  <div class="form-container">
+    <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+      <input
+        class="title-input"
+        type="text"
+        name="title"
+        id="title"
+        value="{{ post.title }}"
+        [(ngModel)]="post.title"
+      />
+      <textarea
+        class="textarea-input"
+        id=""
+        cols="30"
+        rows="10"
+        name="content"
+        id="content"
+        [(ngModel)]="post.content"
+        value="{{ post.content }}"
+      ></textarea>
+      <div class="b-container">
+        <button class="cancel" type="button" (click)="toggleEditMode()">
+          Cancel
+        </button>
+        <button class="save">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<body>
+  <div class="container">
+    <ng-container
+      *ngTemplateOutlet="inEditMode ? editMode : defaultMode"
+    ></ng-container>
+  </div>
+</body>

@@ -1,23 +1,34 @@
 <section class="quiz">
-    <div class="quiz-container">
-        <div class="top">
-            <img class="quiz-image"
-            src="https://img.republicworld.com/republic-prod/stories/promolarge/xxhdpi/wp6ojoyuh6fwdidy_1598513829.jpeg?tr=w-812,h-464" alt="">
-            <!-- <h3 class="created-by">Created by: Gosho</h3> -->
-        </div>
-        <div class="details">
-            <div class="stat">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/25/25333.svg" alt="" class="quiz-svg">
-                <h4>0 Questions</h4>
-            </div>
-            <div class="stat">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/1455/1455361.svg" alt="" class="quiz-svg">
-                <h4>Medium</h4>
-            </div>
-            <div class="stat">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/2088/2088617.svg" alt="" class="quiz-svg">
-                <h4>10 minutes</h4>
-            </div>
-        </div>
+  <div class="quiz-container">
+    <div class="top">
+      <img class="quiz-image" src="{{ url }}" alt="" />
+      <!-- <h3 class="created-by">Created by: Gosho</h3> -->
     </div>
+    <div class="details">
+      <div class="stat">
+        <img
+          src="https://www.flaticon.com/svg/static/icons/svg/25/25333.svg"
+          alt=""
+          class="quiz-svg"
+        />
+        <h4>{{ questions }} Questions</h4>
+      </div>
+      <div class="stat">
+        <img
+          src="https://www.flaticon.com/svg/static/icons/svg/1455/1455361.svg"
+          alt=""
+          class="quiz-svg"
+        />
+        <h4>{{ difficulty }}</h4>
+      </div>
+      <div class="stat">
+        <img
+          src="https://www.flaticon.com/svg/static/icons/svg/2088/2088617.svg"
+          alt=""
+          class="quiz-svg"
+        />
+        <h4>{{ time }} minutes</h4>
+      </div>
+    </div>
+  </div>
 </section>

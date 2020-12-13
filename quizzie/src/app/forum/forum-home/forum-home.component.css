@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&display=swap");
+
+::ng-deep :root {
+  --mainBlue: #3f51b5;
+  --secondaryBlue: #6574c4;
+  --logoFont: "Galada", cursive;
+  --textFont: "Alegreya", serif;
+
+  --darkerBlue: #03256c;
+  --darkBlue: #254182;
+  --midBlue: #1768ac;
+  --lightBlue: #06bee1;
+  --white: #ffffff;
+}
+
+::ng-deep body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p,
+a {
+  font-family: var(--textFont);
+}
+
+.container {
+  height: auto;
+  min-height: 150vh;
+}
+
+.description {
+  display: flex;
+  background-color: var(--darkBlue);
+  color: white;
+  height: 55vh;
+  width: 100vw;
+}
+
+.scrabble {
+  clip-path: polygon(0 0, 75% 0, 100% 100%, 0% 100%);
+  min-height: 40vh;
+  max-height: 65vh;
+  min-width: 75%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.description-container {
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 65vh;
+}
+
+.description-container h3 {
+  font-size: 38px;
+  width: 30vw;
+  position: relative;
+  right: 10vw;
+}
+
+.description-container p {
+  font-style: italic;
+  line-height: 2.5vw;
+  font-size: 18px;
+  width: 30vw;
+  position: relative;
+  right: 9vw;
+}
+
+.btn-container {
+  position: relative;
+  right: 5vw;
+  justify-content: space-evenly;
+  padding: 2vw;
+  display: flex;
+}
+
+.btn-container a {
+  border-radius: 60px;
+  color: #ffffff;
+  font-family: var(--textFont);
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5%;
+  background-color: #1768ac;
+  box-shadow: 1px 1px 5px 0 #000000;
+  text-shadow: 1px 1px 5px #000000;
+  border: solid #03256c 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.btn-container a:hover {
+  background-color: var(--darkerBlue);
+  color: white;
+}
+
+.posts {
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2%;
+  background-color: lightsteelblue;
+}
+
+.post {
+  color: white;
+  background: linear-gradient(
+    139deg,
+    rgba(23, 104, 172, 0.7) 0%,
+    rgba(37, 65, 130, 0.7) 100%
+  );
+  border-radius: 24px;
+  width: 75vw;
+  height: 20vh;
+  margin-bottom: 3%;
+  padding-top: 2%;
+}
+
+.post h3,
+.post p {
+  margin-left: 3vw;
+  color: white;
+  width: 50vw;
+  word-wrap: break-word;
+}
+
+.read {
+  position: relative;
+  float: right;
+  margin-right: 3vw;
+  color: white;
+  top: auto;
+}

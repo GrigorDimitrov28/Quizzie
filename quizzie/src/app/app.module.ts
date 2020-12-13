@@ -12,10 +12,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
+import { ForumModule } from './forum/forum.module';
+import { AllQuizzesComponent } from './all-quizzes/all-quizzes.component';
+import { QuizService } from './core/quiz.service';
+
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, AboutComponent],
-  imports: [CoreModule, BrowserModule, HttpClientModule, AppRoutingModule],
-  providers: [],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    NotFoundComponent,
+    AboutComponent,
+    AllQuizzesComponent,
+  ],
+  imports: [
+    CoreModule,
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ForumModule,
+  ],
+  providers: [QuizService],
   bootstrap: [AppComponent, HeaderComponent, FooterComponent],
 })
-export class AppModule { }
+export class AppModule {}

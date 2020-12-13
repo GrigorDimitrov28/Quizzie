@@ -36,6 +36,10 @@ const quizSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true
+    },
+    imgUrl: {
+        type: String,
+        default: 'http://ontheworldmap.com/world-map.jpg'
     }
     
 }, { timestamps: { createdAt: 'created_at' } });

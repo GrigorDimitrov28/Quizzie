@@ -5,74 +5,71 @@
       <div *ngIf="continue == false" class="inner-container">
         <div class="detail">
           <h4>Number of Questions:</h4>
-          {{ questions }}
           <button
             [class.clicked]="qNum === 5"
-            [class.set-qNum]="qNum === 0"
+            [class.set-qNum]="qNum !== 5"
             (click)="qNum = 5"
           >
             5
           </button>
           <button
             [class.clicked]="qNum === 10"
-            [class.set-qNum]="qNum === 0"
+            [class.set-qNum]="qNum !== 10"
             (click)="qNum = 10"
           >
             10
           </button>
           <button
             [class.clicked]="qNum === 15"
-            [class.set-qNum]="qNum === 0"
+            [class.set-qNum]="qNum !== 15"
             (click)="qNum = 15"
           >
             15
           </button>
         </div>
         <div class="detail">
-          <h4>Quiz Time:</h4>
-          {{ time }}
+          <h4>Time:</h4>
           <button
             [class.clicked]="time === 5"
-            [class.set-time]="time === 0"
+            [class.set-time]="time !== 5"
             (click)="time = 5"
           >
             5
           </button>
           <button
             [class.clicked]="time === 10"
-            [class.set-time]="time === 0"
+            [class.set-time]="time !== 10"
             (click)="time = 10"
           >
             10
           </button>
           <button
             [class.clicked]="time === 15"
-            [class.set-time]="time === 0"
+            [class.set-time]="time !== 15"
             (click)="time = 15"
           >
             15
           </button>
         </div>
         <div class="detail">
-          <h4>Quiz Difficulty:</h4>
-          {{ difficulty }}
+          <h4>Difficulty:</h4>
           <button
             [class.clicked]="difficulty === 1"
-            [class.set-difficulty]="difficulty === 0"
+            [class.set-difficulty]="difficulty !== 1"
             (click)="difficulty = 1"
           >
             1
           </button>
           <button
             [class.clicked]="difficulty === 2"
-            [class.set-difficulty]="difficulty === 0"
+            [class.set-difficulty]="difficulty !== 2"
             (click)="difficulty = 2"
           >
             2
           </button>
           <button
             [class.clicked]="difficulty === 3"
-            [class.set-difficulty]="difficulty === 0"
+            [class.set-difficulty]="difficulty !== 3"
             (click)="difficulty = 3"
           >
             3
@@ -80,17 +77,16 @@
         </div>
         <div class="detail">
           <h4>Quiz Type:</h4>
-          {{ type }}
           <button
             [class.clicked]="type === 'single answer'"
-            [class.set-type]="type === ''"
+            [class.set-type]="type !== 'single answer'"
             (click)="type = 'single answer'"
           >
             single answer
           </button>
           <button
             [class.clicked]="type === 'multiple choice'"
-            [class.set-type]="type === ''"
+            [class.set-type]="type !== 'multiple choice'"
             (click)="type = 'multiple choice'"
           >
             multiple choice
@@ -108,48 +104,85 @@
     </section>
 
     <section class="question-input-multiple-choice">
-      <div *ngIf="continue == true && canPost == false" class="inner-container">
-        <form [formGroup]="f" (ngSubmit)="addQuestion()">
-          <h2>Create question</h2>
+      <div
+        *ngIf="continue == true && canPost == false"
+        class="inner-container-mc"
+      >
+        <form class="quizForm" [formGroup]="f" (ngSubmit)="addQuestion()">
+          <h2 *ngIf="chosenImage == true">Create question</h2>
 
-          <input
-            type="text"
-            name="qName"
-            id="qName"
-            placeholder="Question name:"
-            formControlName="qName"
-          />
+          <div *ngIf="chosenImage == false" class="first-row">
+            <input
+              class="fInput-image"
+              type="text"
+              name="qName"
+              id="qName"
+              placeholder="Quiz image URL:"
+              formControlName="qImgUrl"
+            />
+          </div>
+          <div *ngIf="chosenImage == true" class="first-row">
+            <input
+              class="fInput"
+              type="text"
+              name="qName"
+              id="qName"
+              placeholder="Question name:"
+              formControlName="qName"
+            />
 
-          <input
-            type="text"
-            formControlName="qRAnswer"
-            placeholder="Right answer: "
-          />
+            <input
+              class="fInput"
+              type="text"
+              formControlName="qRAnswer"
+              placeholder="Right answer: "
+            />
+          </div>
 
-          <input
-            type="text"
-            formControlName="qWAnswer1"
-            placeholder="Wrong answer: "
-          />
+          <div *ngIf="chosenImage == true" class="second-row">
+            <input
+              class="fInput"
+              type="text"
+              formControlName="qWAnswer1"
+              placeholder="Wrong answer: "
+            />
 
-          <input
-            type="text"
-            formControlName="qWAnswer2"
-            placeholder="Wrong answer: "
-          />
+            <input
+              class="fInput"
+              type="text"
+              formControlName="qWAnswer2"
+              placeholder="Wrong answer: "
+            />
 
-          <input
-            type="text"
-            formControlName="qWAnswer3"
-            placeholder="Wrong answer: "
-          />
-          <button>Add question</button>
+            <input
+              class="fInput"
+              type="text"
+              formControlName="qWAnswer3"
+              placeholder="Wrong answer: "
+            />
+          </div>
+
+          <button *ngIf="chosenImage == true" class="add-question">
+            Add question
+          </button>
+          <button
+            *ngIf="chosenImage == false"
+            class="add-question"
+            (click)="chosenImage = true; setImage()"
+          >
+            Next
+          </button>
         </form>
-        <button *ngIf="continue == true" (click)="continue = false">
+        <button
+          class="go-back"
+          *ngIf="continue == true && qArray.length == 0"
+          (click)="continue = false"
+        >
           Go back
         </button>
       </div>
-      <button (click)="createQuiz()" *ngIf="canPost == true">
+
+      <button class="post" (click)="createQuiz()" *ngIf="canPost == true">
         Create quiz
       </button>
     </section>

@@ -52,6 +52,10 @@ export class AuthService {
     );
   }
 
+  getHomeInfo(): Observable<any> {
+    return this.http.get('/users/home/info');
+  }
+
   // getId(): Observable<any> {
   //   return this.http.get(`/users/profile`).pipe(
   //     tap((user: IUser) => {

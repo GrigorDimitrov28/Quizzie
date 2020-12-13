@@ -1,0 +1,84 @@
+::ng-deep body {
+  margin: 0;
+}
+.quiz {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  background-color: lightsteelblue;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.quiz-container {
+  width: 60vw;
+  height: 80vh;
+  border-radius: 12px;
+  background: rgb(23, 104, 172);
+  background: linear-gradient(
+    139deg,
+    rgba(23, 104, 172, 1) 0%,
+    rgba(37, 65, 130, 1) 100%
+  );
+}
+
+.header {
+  background-color: var(--darkerBlue);
+  color: white;
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.header h3 {
+  color: white;
+  font-size: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin: 2% auto 2% auto;
+  padding: 1vh 2vw 1vh 2vw;
+  width: 23vw;
+  height: 6vh;
+  border-radius: 30px;
+  border: 1px solid black;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+form textarea {
+  outline: none;
+  width: 40vw;
+  padding: 1vh 2vw 1vh 2vw;
+  border: 1px solid black;
+  margin: 2% auto 2% auto;
+  height: 25vh;
+  border-radius: 30px;
+}
+
+form button {
+  outline: none;
+  width: 7.5vw;
+  height: 7vh;
+  margin: 2% auto 2% auto;
+  border-radius: 60px;
+  background-color: var(--lightBlue);
+  box-shadow: 1px 1px 5px 0 #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.5s;
+}

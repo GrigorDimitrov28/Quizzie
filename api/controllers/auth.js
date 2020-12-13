@@ -1,5 +1,7 @@
 const {
     userModel,
+    quizModel,
+    forumModel,
     tokenBlacklistModel
 } = require('../models');
 
@@ -108,11 +110,39 @@ function getInfo(req, res, next) {
 
 }
 
+async function getHomeInfo(req, res, next) {
+    let quizzes = await quizModel.find()
+    const quizCount = quizzes.length;
+
+    quizzes = quizzes.splice(0, 4);
+
+    let leaderboard = await userModel.find()
+    const userCount = leaderboard.length;
+    leaderboard = leaderboard.sort((a, b) => b.points - a.points).splice(0, 5);
+
+    let forum = await forumModel.find()
+    const forumCount = forum.length;
+
+    forum = forum.splice(0, 2);
+
+    const obj = {
+        qCount: quizCount,
+        uCount: userCount,
+        fCount: forumCount,
+        featuredQuizzes: quizzes,
+        leaderboard: leaderboard,
+        featuredForum: forum
+    }
+
+    res.status(200).send(obj);
+}
+
 module.exports = {
     login,
     register,
     logout,
     getProfileInfo,
     editProfileInfo,
-    getInfo
+    getInfo,
+    getHomeInfo
 }

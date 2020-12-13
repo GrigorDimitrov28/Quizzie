@@ -1,0 +1,31 @@
+<section class="quiz">
+  <div class="quiz-container">
+    <section class="header">
+      <h2>Create forum post</h2>
+    </section>
+    <form action="" [formGroup]="blog" (ngSubmit)="submit()">
+      <input type="text" formControlName="title" placeholder="Post Title" />
+
+      <textarea
+        formControlName="content"
+        id=""
+        cols="30"
+        rows="10"
+        placeHolder="Post Content:"
+      ></textarea>
+      <!-- <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Question name:"
+          formControlName="title"
+        />
+    
+        <textarea
+          formControlName="content"
+          placeholder="Right answer: "
+        > -->
+      <button>Submit Post</button>
+    </form>
+  </div>
+</section>

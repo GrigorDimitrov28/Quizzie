@@ -16,10 +16,10 @@
 
         <div class="btn-container">
           <a *ngIf="!(isLogged$ | async)" routerLink="/quiz/random"
-            >Play as a guest</a
+            >Play random</a
           >
           <a *ngIf="!(isLogged$ | async)" routerLink="/user/register">
-            Create an account
+            Register
           </a>
           <a href="#" routerLink="/quiz/create" *ngIf="isLogged$ | async"
             >Create quiz</a
@@ -33,77 +33,17 @@
 
     <section class="quiz-section">
       <section class="quizzes">
-        <h3>Featured custom quizzes</h3>
+        <h3>Recent custom quizzes</h3>
         <div class="first-row">
-          <article class="quiz-card">
-            <img
-              src="http://ontheworldmap.com/world-map.jpg"
-              alt=""
-              class="quiz-image"
-            />
-            <!-- <div class="category-one">
-              <h4>Category: Geography</h4>
-              <h4>Created by: Gosho</h4>
-            </div> -->
+          <article *ngFor="let quiz of quizzes" class="quiz-card">
+            <img src="{{ quiz.imgUrl }}" alt="" class="quiz-image" />
             <div *ngIf="isLogged$ | async" class="quiz-buttons">
-              <button class="play">Play</button>
-              <button class="details">Details</button>
-            </div>
-            <div *ngIf="!(isLogged$ | async)" class="details-button">
-              <button class="guest-details">Details</button>
-            </div>
-          </article>
-          <article class="quiz-card">
-            <img
-              src="http://ontheworldmap.com/world-map.jpg"
-              alt=""
-              class="quiz-image"
-            />
-            <!-- <div class="category-two">
-              <h4>Category: Geography</h4>
-              <h4>Created by: Gosho</h4>
-            </div> -->
-            <div *ngIf="isLogged$ | async" class="quiz-buttons">
-              <button class="play">Play</button>
-              <button class="details">Details</button>
-            </div>
-            <div *ngIf="!(isLogged$ | async)" class="details-button">
-              <button class="guest-details">Details</button>
-            </div>
-          </article>
-        </div>
-        <div class="second-row">
-          <article class="quiz-card">
-            <img
-              src="http://ontheworldmap.com/world-map.jpg"
-              alt=""
-              class="quiz-image"
-            />
-            <!-- <div class="category-three">
-              <h4>Category: Geography</h4>
-              <h4>Created by: Gosho</h4>
-            </div> -->
-            <div *ngIf="isLogged$ | async" class="quiz-buttons">
-              <button class="play">Play</button>
-              <button class="details">Details</button>
-            </div>
-            <div *ngIf="!(isLogged$ | async)" class="details-button">
-              <button class="guest-details">Details</button>
-            </div>
-          </article>
-          <article class="quiz-card">
-            <img
-              src="http://ontheworldmap.com/world-map.jpg"
-              alt=""
-              class="quiz-image"
-            />
-            <!-- <div class="category-four">
-              <h4>Category: Geography</h4>
-              <h4>Created by: Gosho</h4>
-            </div> -->
-            <div *ngIf="isLogged$ | async" class="quiz-buttons">
-              <button class="play">Play</button>
-              <button class="details">Details</button>
+              <button class="play" routerLink="/quiz/play/{{ quiz._id }}">
+                Play
+              </button>
+              <button class="details" routerLink="/quiz/details/{{ quiz._id }}">
+                Details
+              </button>
             </div>
             <div *ngIf="!(isLogged$ | async)" class="details-button">
               <button class="guest-details">Details</button>
@@ -115,46 +55,18 @@
       <section class="leaderboard">
         <h3>Leaderboard</h3>
         <table>
-          <tr>
-            <th>User</th>
-            <th>Quizzie Points</th>
+          <tr class="legend">
+            <th class="user-row-head">User</th>
+            <th class="points-row-head">Quizzie Points</th>
           </tr>
-          <tr>
-            <td>
-              <img src="" alt="" class="profile-picture" />
-              <h4 class="user-name"></h4>
+          <tr class="row" *ngFor="let user of leaderboard">
+            <td class="user-row">
+              <img src="{{ user.imgUrl }}" alt="" class="profile-picture" />
+              <h4 class="user-name">{{ user.username }}</h4>
             </td>
-            <td>
-              <h4 class="points"></h4>
+            <td class="points-row">
+              <h4 class="points">{{ user.points }}</h4>
             </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="" alt="" class="profile-picture" />
-              <h4 class="user-name"></h4>
-            </td>
-            <td><h4 class="points"></h4></td>
-          </tr>
-          <tr>
-            <td>
-              <img src="" alt="" class="profile-picture" />
-              <h4 class="user-name"></h4>
-            </td>
-            <td><h4 class="points"></h4></td>
-          </tr>
-          <tr>
-            <td>
-              <img src="" alt="" class="profile-picture" />
-              <h4 class="user-name"></h4>
-            </td>
-            <td><h4 class="points"></h4></td>
-          </tr>
-          <tr>
-            <td>
-              <img src="" alt="" class="profile-picture" />
-              <h4 class="user-name"></h4>
-            </td>
-            <td><h4 class="points"></h4></td>
           </tr>
         </table>
       </section>
@@ -170,7 +82,7 @@
             class="svg"
           />
 
-          <h4>0 Users</h4>
+          <h4>{{ uCount }} Users</h4>
         </article>
         <article class="website-quizzes">
           <img
@@ -179,7 +91,7 @@
             class="svg"
           />
 
-          <h4>0 Quizzes</h4>
+          <h4>{{ qCount }} Quizzes</h4>
         </article>
         <article class="website-blogposts">
           <img
@@ -188,14 +100,21 @@
             class="svg"
           />
 
-          <h4>0 Blog posts</h4>
+          <h4>{{ fCount }} Forum posts</h4>
         </article>
       </div>
     </section>
 
     <section class="featured-blogposts">
-      <article class="blogpost">p</article>
-      <article class="blogpost">p</article>
+      <h3 class="f">Recent forum posts</h3>
+      <div class="post" *ngFor="let post of forumPosts">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-firstTwenty">{{ post.content.slice(0, 150) + "..." }}</p>
+
+        <a href="#" class="read" routerLink="/forum/details/{{ post._id }}"
+          >Read post</a
+        >
+      </div>
     </section>
   </main>
 </body>
